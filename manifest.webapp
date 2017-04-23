@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "UFM Chat",
+  "launch_path": "/index.html",
+  "description": "Chat with ufm-friends",
+  "developer": {
+    "name": "",
+    "url": ""
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "UFM Chat",
+      "description": "Chat with friends"
+    }
+  }
+}
