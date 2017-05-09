@@ -41,6 +41,11 @@ function FriendlyChat() {
 // Sets up shortcuts to Firebase features and initiate firebase auth.
 FriendlyChat.prototype.initFirebase = function() {
   // TODO(STUDENT): Initialize Firebase.
+  this.auth = firebase.auth();
+  this.database = firebase.database();
+  this.storage = firebase.storage();
+  // Initiates Firebase auth and listen to auth state changes.
+  this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
 
 };
 
@@ -93,11 +98,14 @@ FriendlyChat.prototype.saveImageMessage = function(event) {
 // Signs-in 
 FriendlyChat.prototype.signIn = function() {
   // TODO(STUDENT): Sign in Firebase with credential from the Google user.
+  var provider = new firebase.auth.GoogleAuthProvider();
+  this.auth.signInWithPopup(provider);
 };
 
 // Signs-out of Friendly Chat.
 FriendlyChat.prototype.signOut = function() {
   // TODO(STUDENT): Sign out of Firebase.
+  this.auth.signOut();
 };
 
 // Triggers when the auth state change for instance when the user signs-in or signs-out.
